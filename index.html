@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WICHTIGER ANRUF!!!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="main-body">
+    <!-- PHASE 0: Entry (To allow audio) -->
+    <div id="entry-screen" class="screen">
+        <marquee behavior="alternate"><h1>!!! HERZLICH WILLKOMMEN !!!</h1></marquee>
+        <button id="enter-btn" class="btn btn-green">EINTRETEN</button>
+        <marquee behavior="alternate" direction="right"><h1>!!! KLICKEN ZUM STARTEN !!!</h1></marquee>
+    </div>
+
+    <!-- PHASE 1: 2000s Call -->
+    <div id="call-screen" class="screen hidden">
+        <div class="call-header">
+            <span class="warning">⚠️</span>
+            <h1>M E K RUFT AN</h1>
+            <span class="warning">⚠️</span>
+        </div>
+        <div class="video-container large-video">
+            <video id="call-video" loop muted autoplay>
+                <source src="assets/videos/call_video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <button id="accept-btn" class="btn btn-green">Annehmen</button>
+    </div>
+
+    <!-- PHASE 2: 2000s Question with "Psst" Transition -->
+    <div id="question-screen" class="screen hidden">
+        <h2 id="psst-text" class="static-black">psst...</h2>
+        
+        <div class="img-container">
+            <img src="assets/images/frechdachs.jpeg" alt="Frechdachs">
+        </div>
+
+        <div id="question-content" class="hidden">
+            <h2 class="static-black">Do you want to be my Gf?</h2>
+            <div class="btn-group">
+                <button id="yes-btn" class="btn btn-green">Ja</button>
+                <button id="no-btn" class="btn btn-red">Nein</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PHASE 3: DRAMATIC FINALE (Modern) -->
+    <div id="finale-screen" class="screen hidden modern-text">
+        <div id="shock-text" class="fade-in hidden">...warte wirklich?</div>
+        <button id="really-btn" class="btn btn-green hidden fade-in">ja wirklich</button>
+        
+        <div id="realization-sequence" class="hidden">
+            <div id="oh-text" class="fade-in hidden">oh...</div>
+            <div id="haha-text" class="fade-in hidden">haha...</div>
+        </div>
+
+        <div id="collage-container" class="hidden fade-in">
+            <div id="final-love-text" class="hidden">Ich liebe dich</div>
+            <!-- Images will be injected here -->
+        </div>
+    </div>
+
+    <!-- AUDIO ELEMENTS -->
+    <audio id="ringtone-sound" loop autoplay>
+        <source src="assets/sounds/ringtone.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="boom-sound">
+        <source src="assets/sounds/boom.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="record-scratch-sound">
+        <source src="assets/sounds/record_scratch.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="prince-sound">
+        <source src="assets/sounds/prince.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
