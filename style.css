@@ -5,7 +5,7 @@ body {
     color: #00ff00;
     text-align: center;
     margin: 0;
-    padding: 0;
+    padding: 10px; /* Reduced for mobile */
     overflow-x: hidden;
     transition: background-color 0.5s ease;
 }
@@ -16,7 +16,9 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .hidden {
@@ -24,60 +26,67 @@ body {
 }
 
 h1 {
-    font-size: 3em;
-    text-shadow: 3px 3px #0000ff;
+    font-size: 2.2em; /* Reduced for mobile */
+    text-shadow: 2px 2px #0000ff;
+    word-wrap: break-word;
 }
 
 .video-container, .img-container {
-    border: 10px ridge #ffffff;
-    margin: 20px;
+    border: 8px ridge #ffffff; /* Slightly thinner for mobile */
+    margin: 15px 0;
     background-color: #000;
+    width: 95%; /* Use more width on mobile */
+    max-width: 600px;
 }
 
 video, img {
-    max-width: 90%;
-    max-height: 50vh;
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
     display: block;
 }
 
 .btn {
-    font-size: 2em;
-    padding: 15px 30px;
-    margin: 20px;
+    font-size: 1.5em; /* Scaled for mobile */
+    padding: 12px 24px;
+    margin: 10px;
     cursor: pointer;
     border: 5px outset #ccc;
     font-weight: bold;
     font-family: inherit;
+    max-width: 90%;
+    word-wrap: break-word;
 }
 
 .call-header {
     display: flex;
+    flex-direction: column; /* Stack warning signs on small screens */
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
 }
 
 .warning {
-    font-size: 4em;
+    font-size: 3em;
     color: red;
     text-shadow: 2px 2px black;
 }
 
 .large-video {
-    width: 80vw;
+    width: 95vw;
     max-width: 800px;
-    border: 15px ridge #ff0000;
+    border: 10px ridge #ff0000;
 }
 
 .large-video video {
-    max-height: 70vh;
+    max-height: 60vh;
     width: 100%;
 }
 
 .static-black {
     color: black !important;
-    font-size: 3em;
-    margin: 20px 0;
+    font-size: 2em; /* Smaller for mobile */
+    margin: 15px 0;
     text-shadow: none !important;
 }
 
@@ -88,14 +97,32 @@ video, img {
 blink { animation: blinker 1s linear infinite; }
 @keyframes blinker { 50% { opacity: 0; } }
 
-.btn-group { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; }
+.btn-group { 
+    display: flex; 
+    flex-direction: column; /* Stack buttons vertically on mobile */
+    width: 100%;
+    align-items: center; 
+}
+
+@media (min-width: 600px) {
+    h1 { font-size: 3em; }
+    .btn { font-size: 2em; }
+    .btn-group { flex-direction: row; justify-content: center; }
+    .call-header { flex-direction: row; }
+    .static-black { font-size: 3em; }
+}
 
 /* --- FINALE THEME (MODERN) --- */
 .modern-text {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: white;
-    font-size: 2.5em;
+    font-size: 1.8em; /* Scaled for mobile */
     font-weight: 300;
+    padding: 20px;
+}
+
+@media (min-width: 600px) {
+    .modern-text { font-size: 2.5em; }
 }
 
 .fade-in {
@@ -121,11 +148,19 @@ blink { animation: blinker 1s linear infinite; }
 
 #collage-container img {
     position: absolute;
-    max-width: 40%; /* Each image takes some space but not all */
-    max-height: 40%;
-    object-fit: contain; /* No cropping */
-    border: 5px solid white;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    max-width: 60%; /* Slightly larger on mobile to be visible */
+    max-height: 60%;
+    object-fit: contain;
+    border: 3px solid white; /* Thinner border */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+@media (min-width: 600px) {
+    #collage-container img {
+        max-width: 40%;
+        max-height: 40%;
+        border-width: 5px;
+    }
 }
 
 #final-love-text {
@@ -136,11 +171,18 @@ blink { animation: blinker 1s linear infinite; }
     z-index: 200;
     background: rgba(0, 0, 0, 0.8);
     color: white;
-    padding: 20px 40px;
-    font-size: 3em;
-    border-radius: 15px;
+    padding: 15px 30px;
+    font-size: 2em; /* Scaled for mobile */
+    border-radius: 10px;
     white-space: nowrap;
     border: 2px solid white;
+}
+
+@media (min-width: 600px) {
+    #final-love-text {
+        font-size: 3em;
+        padding: 20px 40px;
+    }
 }
 
 #realization-sequence div {
